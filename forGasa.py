@@ -2,8 +2,9 @@ from telebot import types,telebot
 import os
 from dotenv import load_dotenv
 load_dotenv()
+import api
 
-bot = telebot.TeleBot(os.getenv("API_TOKEN"))
+bot = telebot.TeleBot(api.API_TOKEN)
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -36,4 +37,3 @@ def mess(message):
     bot.send_message(message.chat.id, finalMessage, parse_mode='html')        
 bot.polling(none_stop=True)
 
-print(bot)
