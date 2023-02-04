@@ -5,9 +5,6 @@ import yok
 bot = telebot.TeleBot(api.API_TOKEN)
 path = "./refs"
 
-img = open("./docs/card.jpeg", 'rb')
-guz = open("./docs/senedler.pdf","rb")
-steps = open("./docs/addımlar.pdf","rb")
 
 
 
@@ -21,8 +18,7 @@ def start(message):
     btn5 = types.KeyboardButton("Yeni qoşulanlar üçün")
     btn6 = types.KeyboardButton("Nümunələr")
     markup.add(btn1,btn2,btn3,btn4,btn5,btn6)
-    send_mess = f"<b>Salam {message.from_user.first_name}!</b>\nNe lazimdır?"
-    send_mess = f"<b>Salam {message.from_user.first_name}!</b>\nNe lazimdır?"
+    send_mess = f"<b>Salam {message.from_user.first_name}!</b>\nNə lazimdır?"
 
     bot.send_message(message.chat.id, send_mess, parse_mode="html", reply_markup=markup)
 
@@ -33,8 +29,9 @@ def mess(message):
     get_message_bot = message.text.strip()
   
     if get_message_bot == "Öz hesabına başvuru":
+        guz = open("./docs/senedler.pdf","rb")
         bot.send_document(message.chat.id, guz)
-  
+
     elif get_message_bot == 'Burs':
         bot.send_document(message.chat.id, document=open('./docs/BursRec.docx', 'rb'))
 
@@ -43,16 +40,19 @@ def mess(message):
     
     elif get_message_bot=="OTB":
         finalMessage=yok.message
+        
         bot.send_photo(message.chat.id, photo=open('./docs/card.jpeg', 'rb'))
 
     elif get_message_bot=='Yeni qoşulanlar üçün':
+        steps = open("./docs/addımlar.pdf","rb")
         bot.send_document(message.chat.id, steps)
 
     elif get_message_bot == "Nümunələr":
-        
         filelist = os.listdir(path)
         for x in filelist:
             bot.send_document(message.chat.id,document=open(path+"/"+x,'rb'))
-
+                        
     bot.send_message(message.chat.id, finalMessage, parse_mode='html')        
 bot.polling(none_stop=True)
+
+    
