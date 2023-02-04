@@ -1,6 +1,7 @@
 from telebot import types,telebot
+import api
 
-bot = telebot.TeleBot('6040147356:AAEoZ4ksAsTXI9ueC-SWoQ3zMDud9z041Jc')
+bot = telebot.TeleBot(api.API_TOKEN)
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -10,7 +11,7 @@ def start(message):
     btn3 = types.KeyboardButton("Burs icin gerekli belgeler")
     btn4 = types.KeyboardButton("Dim senedleri ucun")
     btn5 = types.KeyboardButton("Çin")
-    btn6 = types.KeyboardButton("Amerika")
+    btn6 = types.KeyboardButton("Gasa")
     
     markup.add(btn1,btn2,btn3,btn4,btn5,btn6)
     
@@ -33,3 +34,4 @@ def mess(message):
     bot.send_message(message.chat.id, finalMessage, parse_mode='html')        
 bot.polling(none_stop=True)
 
+print(bot)
