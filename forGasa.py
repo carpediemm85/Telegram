@@ -56,4 +56,3 @@ def mess(message):
 
     bot.send_message(message.chat.id, finalMessage, parse_mode='html')        
 bot.polling(none_stop=True)
-
