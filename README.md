@@ -16,7 +16,7 @@ pip install -r requirements.txt
 3. Replace the placeholder API key in the code with your own key
 4. Run the bot using the following command:
 
-python bot.py
+python forGasa.py
 
 
 ## Commands
