@@ -1,11 +1,8 @@
 from telebot import types,telebot
 import os
-import api
 import yok
-bot = telebot.TeleBot("5643056415:AAHqabQaPTc0nsv3F14eV06sIXTUWcMnt2c")
+bot = telebot.TeleBot("YOUR_API_KEY")
 path = "./refs"
-
-
 
 
 @bot.message_handler(commands=['start'])
@@ -53,6 +50,4 @@ def mess(message):
             bot.send_document(message.chat.id,document=open(path+"/"+x,'rb'))
                         
     bot.send_message(message.chat.id, finalMessage, parse_mode='html')        
-bot.polling(none_stop=True)
-
-    
+bot.polling(none_stop=True)   
