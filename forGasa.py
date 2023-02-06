@@ -2,7 +2,7 @@ from telebot import types,telebot
 import os
 import api
 import yok
-bot = telebot.TeleBot(api.API_TOKEN)
+bot = telebot.TeleBot("5643056415:AAHqabQaPTc0nsv3F14eV06sIXTUWcMnt2c")
 path = "./refs"
 
 
